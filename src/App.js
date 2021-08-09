@@ -3,23 +3,19 @@ import './App.css';
 
 
 function App() {
-  const [unidad, setUnidad] = useState(0);
-  const [decena, setDecena] = useState(0);
-  const [centena, setCentena] = useState(0);
-  const [umil, setUmil] = useState(0);
-  const [dmil, setDmil] = useState(0);
-  const [cmil, setCmil] = useState(0);
+  const [dolar, setUnidad] = useState(0);
+  const [euros, setDecena] = useState(0);
+  const [bitcoin, setCentena] = useState(0);
+  
 
   const [tipo, setTipo] = useState(1);
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
-    setUnidad((total * tipo) / 1);
-    setDecena((total * tipo) / 10);
-    setCentena((total * tipo) / 100);
-    setUmil((total * tipo) / 1000);
-    setDmil((total * tipo) / 10000);
-    setCmil((total * tipo) / 100000);
+    setUnidad(total);
+    setDecena(total / 1.11);
+    setCentena(total / 4609.889277);
+    
   }, [total, tipo]);
 
 
@@ -32,14 +28,12 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Convertidor de unidades</h1>
+      <h1>Convertir de divisas</h1>
 
-      <p>Unidad: {unidad}</p>
-      <p>Decena: {decena}</p>
-      <p>Centena: {centena}</p>
-      <p>Unidad Mil: {umil}</p>
-      <p>Decena Mil: {dmil}</p>
-      <p>Centena Mil: {cmil}</p>
+      <p>Dolar: {dolar}</p>
+      <p>Euro: {euros}</p>
+      <p>Bitcoin: {bitcoin}</p>
+      
 
       <hr />
 
